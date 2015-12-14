@@ -30,7 +30,7 @@ help::
 
 .PHONY: release
 release: assert-master-branch assert-clean-tree
-	$(BUMPER) --field tiny $(VERSION_TXT)
+	$(BUMPER) --field minor $(VERSION_TXT)
 	@echo ">>>"
 	@echo ">>> Do your duties (update CHANGES.rst for example), then"
 	@echo ">>> execute “make tag-release”."
@@ -47,8 +47,8 @@ tag-release: assert-master-branch test-readme+changes-markup
 .PHONY: test-readme+changes-markup
 test-readme+changes-markup:
 	@[ `(cat README.rst; echo; cat CHANGES.rst) \
-	    | rst2html.py 2>&1 >/dev/null \
-	    | wc -l` -eq 0 ] \
+		| rst2html.py 2>&1 >/dev/null \
+		| wc -l` -eq 0 ] \
 	  || (echo "ERROR: README+CHANGES rst markup check failed!"; exit 1)
 	@fgrep -qi unreleased CHANGES.rst \
 	  && (echo "ERROR: release date not set in CHANGES.rst"; exit 1) \
