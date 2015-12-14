@@ -7,3 +7,8 @@ Changes
 ~~~~~~~~~~~~~~~~
 
 - Initial effort.
+
+0.1 (2015-12-14)
+~~~~~~~~~~~~~~~~
+
+- First release complete with tests
