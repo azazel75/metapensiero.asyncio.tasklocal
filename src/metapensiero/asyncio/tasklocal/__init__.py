@@ -10,6 +10,8 @@ import asyncio
 import weakref
 import functools
 
+__all__ = ('BaseDiscriminator', 'TaskDiscriminator', 'Local')
+
 
 class BaseDiscriminator:
     """The base class for an object devoted to manage a generic set of
