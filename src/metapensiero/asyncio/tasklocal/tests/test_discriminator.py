@@ -15,19 +15,21 @@ def test_current(event_loop):
 
     disc = TaskDiscriminator(loop=event_loop)
 
-    async def task_a():
+    @asyncio.coroutine
+    def task_a():
         ctask = asyncio.Task.current_task(loop=event_loop)
         assert ctask is a
         assert disc.current() is ctask
-        await asyncio.sleep(0.001) # this will force a switch to the
+        yield from asyncio.sleep(0.001) # this will force a switch to the
         # other task
         assert disc.current() is ctask
 
-    async def task_b():
+    @asyncio.coroutine
+    def task_b():
         ctask = asyncio.Task.current_task(loop=event_loop)
         assert ctask is b
         assert disc.current() is ctask
-        await asyncio.sleep(0.001)
+        yield from  asyncio.sleep(0.001)
         assert disc.current() is ctask
 
     a = asyncio.Task(task_a(), loop=event_loop)
@@ -51,10 +53,12 @@ def test_dispose(event_loop):
         nonlocal b_completed
         b_completed = True
 
-    async def task_a():
+    @asyncio.coroutine
+    def task_a():
         disc.dispose(a_dispose_handler)
 
-    async def task_b():
+    @asyncio.coroutine
+    def task_b():
         disc.dispose(b_dispose_handler)
 
     a = asyncio.Task(task_a(), loop=event_loop)
