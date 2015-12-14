@@ -75,11 +75,14 @@ class DictManager:
         handler = functools.partial(self._cleanup_dict, obj_id)
         # have to better deal with references?
         self.discriminator.dispose(handler)
+        localdict = {}
         # save a ref to the handler in the case the discriminator
         # handles it the weak way
-        self.dicts[obj_id] = (handler, {})
+        self.dicts[obj_id] = (handler, localdict)
+        return localdict
 
-    def _cleanup_dict(self, _, obj_id):
+
+    def _cleanup_dict(self, obj_id, _):
         if obj_id in self.dicts:
             del self.dicts[obj_id]
 
