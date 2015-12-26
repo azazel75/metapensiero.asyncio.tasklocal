@@ -10,9 +10,9 @@
  metapensiero.asyncio.tasklocal
 ================================
 
- :author: Alberto Berti
- :contact: alberto@metapensiero.it
- :license: GNU General Public License version 3 or later
+:author: Alberto Berti
+:contact: alberto@metapensiero.it
+:license: GNU General Public License version 3 or later
 
 An asyncio's Task-local variable container
 ==========================================
@@ -21,7 +21,9 @@ Usage
 +++++
 
 A drop-in replacement for ``threading.local``  object that stores
-per-task variables (instead of per-thread). You can use it like this::
+per-task variables (instead of per-thread). You can use it like this:
+
+.. code:: python
 
   import asyncio
   from metapensiero.asyncio.tasklocal import Local
@@ -60,14 +62,18 @@ package. It will use standard ``asyncio``'s loop detection techniques
 (by delegating it to ``asyncio.Task.current_task()``) but if you want
 to track tasks of a particular event loop, you can supply your own
 ``TaskDiscriminator`` instance to the ``Local`` instance
-initialization, like this::
+initialization, like this:
+
+.. code:: python
 
   from metapensiero.asyncio.tasklocal import Local, TaskDiscriminator
 
   mylocal = Local(discriminator=TaskDiscriminator(loop=my_loop))
 
 You can also track another set of object by subclassing the
-``BaseDiscriminator`` class::
+``BaseDiscriminator`` class:
+
+.. code:: python
 
   from metapensiero.asyncio.tasklocal import BaseDiscriminator
 
@@ -82,7 +88,9 @@ You have to implement at least the ``current`` method.
 
 Like ``threading.local`` class, this class supports subclassing, in
 which case it will re-execute the ``__init__`` method for each one of
-the tracked objects::
+the tracked objects:
+
+.. code:: python
 
   call_counter = 0
 
