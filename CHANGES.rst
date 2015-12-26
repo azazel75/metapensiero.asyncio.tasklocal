@@ -3,12 +3,13 @@
 Changes
 -------
 
-0.0 (unreleased)
-~~~~~~~~~~~~~~~~
-
-- Initial effort.
 
 0.1 (2015-12-14)
 ~~~~~~~~~~~~~~~~
 
 - First release complete with tests
+
+0.2 (2015-12-26)
+~~~~~~~~~~~~~~~~
+
+- Fix CHANGES and packaging
