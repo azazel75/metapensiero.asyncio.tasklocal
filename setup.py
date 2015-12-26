@@ -22,7 +22,7 @@ with open(os.path.join(here, 'version.txt'), encoding='utf-8') as f:
 setup(
     name="metapensiero.asyncio.tasklocal",
     version=VERSION,
-    url="https://github.com/azazel75/tasklocal",
+    url="https://github.com/azazel75/metapensiero.asyncio.tasklocal",
 
     description="An asyncio's Task-local variable container",
     long_description=README + u'\n\n' + CHANGES,

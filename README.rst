@@ -112,5 +112,5 @@ To run the tests you should run the following at the package root::
 Build status
 ++++++++++++
 
-.. image:: https://travis-ci.org/azazel75/tasklocal.svg?branch=master
-    :target: https://travis-ci.org/azazel75/tasklocal
+.. image:: https://travis-ci.org/azazel75/metapensiero.asyncio.tasklocal.svg?branch=master
+    :target: https://travis-ci.org/azazel75/metapensiero.asyncio.tasklocal
