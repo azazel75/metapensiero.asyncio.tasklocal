@@ -17,6 +17,13 @@
 An asyncio's Task-local variable container
 ==========================================
 
+Installation
+++++++++++++
+
+To install the package execute the following command::
+
+  $ pip install metapensiero.asyncio.tasklocal
+
 Usage
 +++++
 
